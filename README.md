@@ -1,5 +1,5 @@
 # Description
-Source code for the thesis project about federated learning. This includes experimental setups and data analysis.
+Source code for the thesis project about federated learning. This includes experimental setups and data analysis. Detailed descriptions on reproducability and structure is to be found in the subfolders. 
 
 # Structure
 .  

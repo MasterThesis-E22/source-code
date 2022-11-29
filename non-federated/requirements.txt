@@ -1,0 +1,12 @@
+-f https://download.pytorch.org/whl/cu116
+torch
+-f https://download.pytorch.org/whl/cu116
+torchvision
+jupyter
+pandas
+matplotlib
+wandb
+scikit-learn
+numpy
+torchmetrics
+pytorch_lightning

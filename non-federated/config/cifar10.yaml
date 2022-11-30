@@ -15,7 +15,7 @@ model:
   name: Cifar10LowGPUCNN
 
 trainer:
-  epochs: 5
+  epochs: 100
 
 experiment:
   project_name: "Cifar10"

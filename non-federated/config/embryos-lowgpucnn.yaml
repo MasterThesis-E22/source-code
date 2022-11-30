@@ -15,7 +15,7 @@ model:
   name: EmbryosLowGPUCNN
 
 trainer:
-  epochs: 5
+  epochs: 100
 
 experiment:
   project_name: "Embryos"

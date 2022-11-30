@@ -15,7 +15,7 @@ model:
   name: MobileNetV2
 
 trainer:
-  epochs: 5
+  epochs: 100
 
 experiment:
   project_name: "Embryos"

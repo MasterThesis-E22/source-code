@@ -1,0 +1,6 @@
+jupyter
+pandas
+matplotlib
+Pillow
+idx2numpy
+opencv-python

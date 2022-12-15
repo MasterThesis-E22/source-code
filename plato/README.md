@@ -1,5 +1,5 @@
 # Description
-The federated experiments used in the thesis.  
+The federated experiments used in the thesis. The experiments are conducted with an existing framework called plato. However, the framework has had limitations and are therefore tailed for the use int his thesis.   
 
 # Structure
 .  

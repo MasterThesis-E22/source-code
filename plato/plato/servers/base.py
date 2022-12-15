@@ -1433,13 +1433,14 @@ class Server:
                 self.wandb_logger.log({f"client#{client_id}/{attribute}": getattr(report, attribute), "round": self.current_round}, step=self.current_round)
 
     def do_final_model_validation(self):
-        # Resetting best model metrics before full validation
-        self.best_model_metric = 0
-        self.best_model_round = 0
         
         logging.info(f"[{self}] performing and logging final validation of all checkpoints from round 1 to {self.current_round}")
         if not (hasattr(Config().server, "do_final_validation") and Config().server.do_final_validation):
             return
+
+        # Resetting best model metrics before full validation
+        self.best_model_metric = 0
+        self.best_model_round = 0
 
         self.wandb_logger.define_metric("val_central/*", "val_central/round")
 

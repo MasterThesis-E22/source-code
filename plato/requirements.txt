@@ -14,4 +14,4 @@ timm
 pandas
 wandb
 torchmetrics
-sklearn
+scikit-learn

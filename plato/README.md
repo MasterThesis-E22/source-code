@@ -18,7 +18,7 @@ Modifications have been made to the existing plato framework. The changes that h
 - Added more performance metrics to be logged. Plato originally only logged accuracy.
 - Modification to staleness simulation in asynchronous mode: added possibility of adding delay, that is truly random each round. Furthermore, added possibility of simulating staleness with random number genertions. 
 
-# How to run
+# Reproducibility
 - Create a virtual python environment with the defined requirement.txt. Note you need torch and torchvision as well. Here you need to install a version depending on your GPU, GPU driver and CUDA version. For instance we utilize CUDA 11.6 and install torch and  torchvision with the following command: "pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu116"
 - Now you can run the experiment defined in the experiments folder. There are two folders on for asynchronous experiments and for synchronous. Each folder has a base that can be used for different configurations. 
 - Navigating to a folder, an experiment can then be run: "python sync_base.py -c {filename}.yml" where filename is the desired configuration. An example is "python sync_base.py -c mnist/mnist_test.yml" 

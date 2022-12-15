@@ -3,10 +3,10 @@ clients:
     type: simple
 
     # The total number of clients
-    total_clients: 3
+    total_clients: 5
 
     # The number of clients selected in each round
-    per_round: 3
+    per_round: 5
 
     # Should the clients compute test accuracy locally?
     do_test: true
@@ -14,26 +14,44 @@ clients:
     # Whether or not to simulate communication when running on a single machine
     comm_simulation: true
     compute_comm_time: true
-    random_seed: 42
+
+    # Whether client heterogeneity should be simulated
+    #speed_simulation: true
+
+    # The simulation distribution
+    #simulation_distribution:
+        # staleness is simulated from uniform distribution as mentioned in Section 5.2
+    #    distribution: uniform
+    #    low: 0
+    #    high: 20
 
 server:
     address: 127.0.0.1
-    port: 8005
-    synchronous: true
-    simulate_wall_time: true
+    port: 8999
+    synchronous: false
+    simulate_wall_time: false
     do_test: false
     do_final_test: true
 
-    checkpoint_path: models/fedavg/embryos
-    model_path: models/fedavg/embryos
+    # Parameter for FedAsync
+    periodic_interval: 5
+    staleness_bound: 99999
+    minimum_clients_aggregated: 1
+    mixing_hyperparameter: 1
+    adaptive_mixing: true
+    staleness_weighting_function:
+        type: constant
+
+    checkpoint_path: models/fedasync/mnist
+    model_path: models/fedasync/mnist
 
     downlink_bandwidth: 100
     uplink_bandwidth: 100
-    random_seed: 42
+
 data:
     # The training and testing dataset
-    datasource: Embryos
-    size_sorted: true
+    datasource: PartitionedMNIST
+
     # Number of samples in each partition
     #partition_size: 600
 
@@ -45,8 +63,9 @@ data:
     #concentration: 5
 
     # The random seed for sampling data
-    reload_data: true
+    #random_seed: 1
     random_seed: 42
+    reload_data: true
 
 trainer:
     # The type of the trainer
@@ -56,33 +75,33 @@ trainer:
     rounds: 5
 
     # The maximum number of clients running concurrently
-    max_concurrency: 2
+    max_concurrency: 10
 
     # The target accuracy
-    target_accuracy: 0.98
+    #target_accuracy: 0.98
 
     # The machine learning model
-    model_name: lowgpuEmbryosNew
+    model_name: lowgpuMnist
 
     # Number of epoches for local training in each communication round
     epochs: 1
-    batch_size: 16
+    batch_size: 64
     optimizer: RMSprop
 
-    loss_criterion: BCEWithLogitsLoss
+    loss_criterion: CrossEntropyLoss
 
 algorithm:
     # Aggregation algorithm
     type: fedavg
 
 parameters:
-    experiment_name: "Embryos_Debug"
+    experiment_name: "DEBUG"
     optimizer:
         lr: 0.001
         momentum: 0.0 # learning rate is fixed as in Appendix C.2
         weight_decay: 0
 
 results:
-    result_path: results/fedavg/embryos
+    result_path: results/fedasync/mnist
     # Write the following parameter(s) into a CSV
     types: round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, auroc, accuracy, precision, recall

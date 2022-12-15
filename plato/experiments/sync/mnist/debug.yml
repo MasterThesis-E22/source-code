@@ -3,10 +3,10 @@ clients:
     type: simple
 
     # The total number of clients
-    total_clients: 10
+    total_clients: 2
 
     # The number of clients selected in each round
-    per_round: 10
+    per_round: 2
 
     # Should the clients compute test accuracy locally?
     do_test: true
@@ -15,37 +15,16 @@ clients:
     comm_simulation: true
     compute_comm_time: true
 
-    # Whether client heterogeneity should be simulated
-    #speed_simulation: true
-
-    # The simulation distribution
-    #simulation_distribution:
-        # staleness is simulated from uniform distribution as mentioned in Section 5.2
-    #    distribution: uniform
-    #    low: 0
-    #    high: 20
-
 server:
     address: 127.0.0.1
-    port: 8999
-    synchronous: false
-    simulate_wall_time: false
+    port: 8001
+    synchronous: true
+    simulate_wall_time: true
     do_test: false
     do_final_test: true
 
-    # Parameter for FedAsync
-    periodic_interval: 5
-    staleness_bound: 99999
-    minimum_clients_aggregated: 1
-    mixing_hyperparameter: 1
-    adaptive_mixing: true
-    staleness_weighting_function:
-        type: constant
-        a: 10
-        b: 4
-
-    checkpoint_path: models/fedasync/mnist
-    model_path: models/fedasync/mnist
+    checkpoint_path: models/fedavg/mnistDev
+    model_path: models/fedavg/mnistDev
 
     downlink_bandwidth: 100
     uplink_bandwidth: 100
@@ -55,19 +34,16 @@ data:
     datasource: PartitionedMNIST
 
     # Number of samples in each partition
-    #partition_size: 600
+    #partition_size: 1000
 
     # IID or non-IID?
     sampler: all_inclusive
     testset_sampler: all_inclusive
-
     # The concentration parameter for the Dirichlet distribution
     #concentration: 5
 
     # The random seed for sampling data
     #random_seed: 1
-    random_seed: 42
-    reload_data: true
 
 trainer:
     # The type of the trainer
@@ -97,13 +73,14 @@ algorithm:
     type: fedavg
 
 parameters:
-    experiment_name: "FedAsync-Debug"
+    experiment_name: "DEBUG"
     optimizer:
         lr: 0.001
         momentum: 0.0 # learning rate is fixed as in Appendix C.2
         weight_decay: 0
 
 results:
-    result_path: results/fedasync/mnist
+    num_classes: 10
+    result_path: results/fedavg/mnistDev
     # Write the following parameter(s) into a CSV
     types: round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, auroc, accuracy, precision, recall

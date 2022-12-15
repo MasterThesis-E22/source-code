@@ -10,5 +10,5 @@ This project contains data analysis of the different datasets.
 └── utilities (a flwr helper used by the lda_partitioner)
 
 # Reproducibility
-There is a requirement.txt which can be used to create python virtual environment.   
+There is a requirement.txt which can be used to create python virtual environment. This file defines the necessary dependencies to run the various Jupyter notebooks.   
   

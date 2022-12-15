@@ -9,5 +9,9 @@ Non federated experiments
 └── models (lightning modules and CNNs)
 
 # Reproducibility
-There is a requirement.txt which can be used to create python virtual environment. The requirement.txt is created with pip freeze from a working environment. There is a note regarding torch and torchvision. These can be acquired from the --extra-index-url https://download.pytorch.org/whl/cu116 depending on the cuda version on the machine. 
+- Create a virtual python environment: python3 -m venv venv
+- Activate the environment: . venv/bin/activate
+- Install torch and torchvision (url depends on CUDA version): pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu116
+- Install other requirement defined requirements.txt: pip install -r requirements.txt
+- Experiments can now be run 
   

@@ -31,7 +31,7 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: PartitionedCifar10
+    datasource: PartitionedCIFAR10
 
     # Number of samples in each partition
     #partition_size: 1000

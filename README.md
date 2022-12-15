@@ -4,5 +4,5 @@ Source code for the thesis project about federated learning. This includes exper
 # Structure
 .  
 ├── data (data analysis of the used datasets)  
-├── non-federated (experimental setups of the non-federated setting)
+├── non-federated (experimental setups of the non-federated setting)  
 └── plato (experimental setups of the federated setting. This is a fork of plato)  

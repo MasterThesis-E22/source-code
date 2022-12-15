@@ -19,8 +19,13 @@ Modifications have been made to the existing plato framework. The changes that h
 - Modification to staleness simulation in asynchronous mode: added possibility of adding delay, that is truly random each round. Furthermore, added possibility of simulating staleness with random number genertions. 
 
 # Reproducibility
-- Create a virtual python environment with the defined requirement.txt. Note you need torch and torchvision as well. Here you need to install a version depending on your GPU, GPU driver and CUDA version. For instance we utilize CUDA 11.6 and install torch and  torchvision with the following command: "pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu116"
+- Create a virtual python environment: python3 -m venv venv
+- Activate the environment: . venv/bin/activate
+- Install torch and torchvision (url depends on CUDA version): pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu116
+- Install other requirement defined requirements.txt: pip install -r requirements.txt
+- Install the local plato version (being in the folder where the setup.py  is): pip install -e . 
 - Now you can run the experiment defined in the experiments folder. There are two folders on for asynchronous experiments and for synchronous. Each folder has a base that can be used for different configurations. 
-- Navigating to a folder, an experiment can then be run: "python sync_base.py -c {filename}.yml" where filename is the desired configuration. An example is "python sync_base.py -c mnist/mnist_test.yml" 
+- Navigating to a experiments folder: cd experiements/sync
+- Run an experiment using the base:  "python sync_base.py -c {filename}.yml" where filename is the desired configuration. An example is "python sync_base.py -c mnist/mnist_test.yml"  
 - We have run the experiments on a remote server, and it is has therefore been necessary to queue multiple experiments. 
 - This can be done with one of shell files. We run them with nohup so we are able to shut down our workstations: "nohup run_benchmark_experiments.sh &"

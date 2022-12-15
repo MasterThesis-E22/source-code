@@ -1,5 +1,5 @@
 # Description
-The federated experiments used in the thesis. The experiments are conducted with an existing framework called plato. However, the framework has had limitations and are therefore tailed for the use int his thesis.   
+The federated experiments used in the thesis. The experiments are conducted with an existing framework called plato. However, the framework has had limitations and are therefore tailed for the use in this thesis.   
 
 # Structure
 .  
@@ -26,6 +26,6 @@ Modifications have been made to the existing plato framework. The changes that h
 - Install the local plato version (being in the folder where the setup.py  is): pip install -e . 
 - Now you can run the experiment defined in the experiments folder. There are two folders on for asynchronous experiments and for synchronous. Each folder has a base that can be used for different configurations. 
 - Navigating to a experiments folder: cd experiements/sync
-- Run an experiment using the base:  "python sync_base.py -c {filename}.yml" where filename is the desired configuration. An example is "python sync_base.py -c mnist/mnist_test.yml"  
+- Run an experiment using the base:  "python sync_base.py -c {filename}.yml" where filename is the desired configuration. An example is "python sync_base.py -c mnist/debug.yml"  
 - We have run the experiments on a remote server, and it is has therefore been necessary to queue multiple experiments. 
 - This can be done with one of shell files. We run them with nohup so we are able to shut down our workstations: "nohup run_benchmark_experiments.sh &"

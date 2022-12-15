@@ -59,7 +59,7 @@ trainer:
     #target_accuracy: 0.98
 
     # The machine learning model
-    model_name: lowgpuMnist
+    model_name: lowgpuCifar10
 
     # Number of epoches for local training in each communication round
     epochs: 1

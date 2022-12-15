@@ -1,5 +1,5 @@
 # Description
-Non federated experiments
+Non federated experiments using Pytorch Lightning. The defined structure and how to run the experiments is defined below. 
 
 # Structure
 .  

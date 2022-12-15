@@ -2,10 +2,10 @@
 Non federated experiments
 
 # Structure
-.
-├── config (experiment configuration to run)
-├── dataset (the datasets used)
-├── experiments (experiment definitions)
+.  
+├── config (experiment configuration to run)  
+├── dataset (the datasets used)  
+├── experiments (experiment definitions)  
 └── models (lightning modules and CNNs)
 
 # Reproducibility

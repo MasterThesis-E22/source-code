@@ -1,7 +1,6 @@
 from config.nonFederatedConfig import NonFederatedConfig
 from experiments.experiment import Experiment
 from models.embryosLightning import EmbryosLightning
-from models.embryosLightningNoConfig import EmbryosLightningNoConfig
 
 
 class EmbryosExperiment(Experiment):
@@ -17,6 +16,6 @@ class EmbryosExperiment(Experiment):
         self.trainer.test(model=best_model)
 
     def test(self, path: str):
-        best_model = EmbryosLightningNoConfig.load_from_checkpoint(path)
+        best_model = EmbryosLightning.load_from_checkpoint(path)
         self.trainer.test(model=best_model)
 

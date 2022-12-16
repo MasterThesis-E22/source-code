@@ -18,7 +18,7 @@ trainer:
   epochs: 100
 
 experiment:
-  project_name: "FedAvg-LR1e4-C23-15/12-08:53-TEST"
+  project_name: "FedAvg-LR1e4-C23-TEST"
   checkpoint_path: "checkpoints/embryos/updatedlowgpucnn/default"
   metric_monitor: "val/auroc"
   metric_mode: "max"

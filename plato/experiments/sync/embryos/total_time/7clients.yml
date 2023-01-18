@@ -21,7 +21,7 @@ server:
     port: 8000
     synchronous: true
     simulate_wall_time: true
-    #do_test: false
+    do_test: false
     #do_final_validation: true
     #do_final_test: true
 

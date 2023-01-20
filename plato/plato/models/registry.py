@@ -36,7 +36,8 @@ else:
         "lowgpuEmbryosOld": models.EmbryosLowGPUCNN,
         "lowgpuMnist": models.MNISTLowGPUCNN,
         "lowgpuCifar10": models.Cifar10LowGPUCNN,
-        "simplecnn": simplecnn.Model
+        "simplecnn": simplecnn.Model,
+        "fedAsync": models.FedAsync
     }
 
     registered_factories = {

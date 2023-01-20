@@ -239,6 +239,45 @@ class Cifar10LowGPUCNN(nn.Module):
         x = self.decoder(x)
         return x
 
+class FedAsync(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv_block1 = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.BatchNorm2d(64),
+            nn.Conv2d(64, 64, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.BatchNorm2d(64),
+            nn.MaxPool2d(2, 2),
+            nn.Dropout(0.25),
+        )
+
+        self.conv_block2 = nn.Sequential(
+            nn.Conv2d(64, 128, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.BatchNorm2d(128),
+            nn.Conv2d(128, 128, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.BatchNorm2d(128),
+            nn.MaxPool2d(2, 2),
+            nn.Dropout(0.25),
+        )
+
+        self.decoder = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(8192, 512),
+            nn.ReLU(),
+            nn.Dropout(0.25),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.conv_block1(x)
+        x = self.conv_block2(x)
+        x = self.decoder(x)
+        return x
+
 class MobileNetV2(nn.Module):
     def __init__(self, num_classes, alpha):
         super().__init__()
